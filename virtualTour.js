@@ -1,5 +1,29 @@
 // LAKY'S VIRTUAL TOUR v1.0.0
 
+
+/* Pin styles */
+const defaultPin = L.AwesomeMarkers.icon({
+    icon: 'circle',
+    markerColor: 'blue',
+    prefix: 'fa',
+    iconColor: 'white'
+});
+
+const selectedPin = L.AwesomeMarkers.icon({
+    icon: 'circle',
+    markerColor: 'red',
+    prefix: 'fa',
+    iconColor: 'white'
+});
+
+var map = L.map('map',
+    {
+        minZoom: 6,
+        maxZoom: 19,
+    }
+);
+let currentlySelectedMarker = null;
+
 /* Map Types */
 let osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -22,13 +46,10 @@ let baseMaps = {
     "Satellite": satelliteMap
 };
 
-var map = L.map('map',
-    {
-        minZoom: 6,
-        maxZoom: 19,
-        layers: [osm]
-    }
-);
+
+map.minZoom = 6;
+map.maxZoom = 19;
+osm.addTo(map);
 map.setView([28.412631731045128, -16.544176864035325], 13);
 
 let layer_control = L.control.layers(baseMaps).addTo(map);
@@ -43,9 +64,17 @@ loadLocations().then(
 function placeLocations(locations)
 {
     locations.forEach(location => {
-        var marker = L.marker([location.lat, location.lon]);
+        var marker = L.marker([location.lat, location.lon], { icon: defaultPin });
 
         marker.on('click', function(){
+
+            if (currentlySelectedMarker && currentlySelectedMarker !== marker) {
+                currentlySelectedMarker.setIcon(defaultPin);
+            }
+            // set this marker selected
+            marker.setIcon(selectedPin);
+            currentlySelectedMarker = marker;
+
             openPanel(location);
         });
 

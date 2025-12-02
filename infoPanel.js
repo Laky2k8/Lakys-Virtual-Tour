@@ -8,6 +8,17 @@ const gmapsBtn = document.getElementById("gmaps-button");
 
 function openPanel(location)
 {
+
+    /* Close the panel if it's already visible for a better transition */
+    if(infoPanel.classList.contains("open"))
+    {
+        closePanel();
+        setTimeout(() => {
+            openPanel(location);
+        }, 500);
+        return;
+    }
+
     infoImage.src = location.image;
     infoPlaceName.textContent = location.title;
     infoDesc.textContent = location.description;

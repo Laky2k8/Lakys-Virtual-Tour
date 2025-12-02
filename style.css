@@ -110,6 +110,10 @@ body
     background-color: darkblue;
 }
 
+/* Marker*/
+.fa-circle {
+	margin-top: 12px;
+}
 
 /* Mobile */
 @media (max-width: 600px) {
