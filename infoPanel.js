@@ -12,7 +12,7 @@ function openPanel(location)
     /* Close the panel if it's already visible for a better transition */
     if(infoPanel.classList.contains("open"))
     {
-        closePanel();
+        closePanel(false);
         setTimeout(() => {
             openPanel(location);
         }, 500);
@@ -40,7 +40,13 @@ function openPanel(location)
     infoPanel.classList.add("open");
 }
 
-function closePanel()
+function closePanel(resetMarker = true)
 {
     infoPanel.classList.remove('open');
+
+    if (resetMarker && currentlySelectedMarker) {
+        currentlySelectedMarker.setIcon(defaultPin);
+        currentlySelectedMarker = null;
+    }
+
 }
