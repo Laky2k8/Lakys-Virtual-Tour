@@ -1,0 +1,15 @@
+[
+    {
+        "lat": 28.4148524439584,
+        "lon": -16.543602655818045,
+        "image": "assets/ai_pano.jpg",
+        "description": "Lorem impsum dolor sit amet"
+    },
+
+    {
+        "lat": 28.406135568331703,
+        "lon": -16.53985113633888,
+        "image": "assets/Gemini_Generated_Image_92peh892peh892pe.png",
+        "description": "Tung tung tung sahur"
+    }
+]
