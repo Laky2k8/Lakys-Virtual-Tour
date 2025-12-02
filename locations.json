@@ -1,15 +1,18 @@
 [
     {
-        "lat": 28.4148524439584,
-        "lon": -16.543602655818045,
+        "lat": 28.414293157778147,
+        "lon": -16.54291821239691,
         "image": "assets/ai_pano.jpg",
-        "description": "Lorem impsum dolor sit amet"
+        "title": "Canary Campus",
+        "description": "Canary Campus is the most sigma hostel in the world.\nIt is very cool and tuff and 67 mango phonk.",
+        "gmaps_url": "https://www.google.com/maps/place/Calz.+Marti%C3%A1nez,+9,+38400+Puerto+de+la+Cruz,+Santa+Cruz+de+Tenerife/"
     },
 
     {
         "lat": 28.406135568331703,
         "lon": -16.53985113633888,
         "image": "assets/Gemini_Generated_Image_92peh892peh892pe.png",
-        "description": "Tung tung tung sahur"
+        "title": "PusztAIfalu???",
+        "description": "Wait how the fuck did this get here? Did it just fucking teleport here?\n What the fuck?????"
     }
 ]

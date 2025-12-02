@@ -1,3 +1,10 @@
+@import "fonts.css";
+
+body
+{
+    font-family: var(--font-poppins);
+}
+
 #map
 {
     position: absolute !important;
@@ -5,4 +12,116 @@
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+/* Info Panel Styles */
+.info-panel {
+    position: fixed;
+    top: 0;
+    left: -400px; /* Hidden by default */
+    width: 400px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+}
+
+.info-panel.open {
+    left: 0;
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    border-radius: 5px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+
+    font-size: 36px;
+    cursor: pointer;
+    color: #363636;
+    z-index: 1001;
+}
+
+.close-btn:hover {
+    color: #202124;
+}
+
+.info-content {
+    padding: 0;
+}
+
+#info-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.info-details {
+    padding: 20px;
+}
+
+#info-desc {
+    font-weight: var(--font-weight-medium);
+    font-size: 14px;
+    color: #3c4043;
+    line-height: 1.6;
+}
+
+#info-place
+{
+    font-weight: var(--font-weight-bold);
+}
+
+.gmaps-button
+{
+    /* Center the button */
+    display: block;
+    margin: 20px auto;
+
+    padding: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: blue;
+    color: white;
+    font-family: var(--font-poppins);
+    font-weight: var(--font-weight-semibold);
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    transition-duration: .2s;
+}
+
+.gmaps-button:hover
+{
+    background-color: darkblue;
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+    .info-panel {
+        width: 100%;
+        left: -100%;
+
+        top: 40%;
+    }
+    
+    .info-panel.open {
+        left: 0;
+    }
+    
 }

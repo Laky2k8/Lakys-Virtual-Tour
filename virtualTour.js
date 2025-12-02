@@ -44,6 +44,11 @@ function placeLocations(locations)
 {
     locations.forEach(location => {
         var marker = L.marker([location.lat, location.lon]);
+
+        marker.on('click', function(){
+            openPanel(location);
+        });
+
         marker.addTo(map);
     });
 }
