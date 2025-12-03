@@ -54,16 +54,31 @@ map.setView([28.412631731045128, -16.544176864035325], 13);
 
 let layer_control = L.control.layers(baseMaps).addTo(map);
 
+let locations;
+
 loadLocations().then(
-  function(locations)
-  {
-    placeLocations(locations);
-  }  
+    function(loadedLocations)
+    {
+        locations = loadedLocations;  
+        placeLocations(locations);
+    }  
 );
 
 function placeLocations(locations)
 {
     locations.forEach(location => {
+
+        // Check if the image for the current location is a panorama
+        const aspectRatio = location.image.naturalWidth / location.image.naturalHeight;
+        if(Math.abs(aspectRatio - 2) < 0.1)
+        {
+            location.isPanorama = true;
+        }
+        else
+        {
+            location.isPanorama = false;
+        }
+
         var marker = L.marker([location.lat, location.lon], { icon: defaultPin });
 
         marker.on('click', function(){
