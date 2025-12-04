@@ -2,17 +2,27 @@
     {
         "lat": 28.414293157778147,
         "lon": -16.54291821239691,
-        "image": "assets/ai_pano.jpg",
+        "image": "assets/20251202_122201_370.jpg",
         "title": "Canary Campus",
         "description": "Canary Campus is the most sigma hostel in the world.\nIt is very cool and tuff and 67 mango phonk.",
         "gmaps_url": "https://www.google.com/maps/place/Calz.+Marti%C3%A1nez,+9,+38400+Puerto+de+la+Cruz,+Santa+Cruz+de+Tenerife/"
     },
 
     {
+        "lat": 28.412973316182246,
+        "lon": -16.558460821913293,
+        "image": "assets/LMC_20251202_163029.PHOTOSPHERE.jpg",
+        "title": "Playa Jardín",
+        "description": "Playa Jardín is a nice sandy beach in downtown Puerto de la Cruz. It has beautiful black volcanic sand, gentle waves and is great for dipping in the ocean."
+    },
+
+    {
         "lat": 28.406135568331703,
         "lon": -16.53985113633888,
-        "image": "assets/Gemini_Generated_Image_92peh892peh892pe.png",
+        "image": "assets/old/Gemini_Generated_Image_92peh892peh892pe.png",
         "title": "PusztAIfalu???",
         "description": "Wait how the fuck did this get here? Did it just fucking teleport here?\n What the fuck?????"
     }
+
+
 ]

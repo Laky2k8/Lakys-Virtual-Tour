@@ -1,8 +1,8 @@
 @import "fonts.css";
 
-body
+*
 {
-    font-family: var(--font-poppins);
+    font-family: var(--font-poppins) !important;
 }
 
 #map
@@ -24,8 +24,9 @@ body
     background-color: #fff;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    transition: left 0.3s ease;
+    transition: left 0.5s ease;
     overflow-y: auto;
+    transition-duration: 0.5s;
 }
 
 .info-panel.open {
@@ -128,4 +129,84 @@ body
         left: 0;
     }
     
+}
+
+/* Openable panorama "button" */
+
+
+.openable-panorama
+{
+    transition-duration: .2s;
+
+    /* Bobbing animation */
+    animation: bobbing 2s ease-in-out infinite;
+}
+
+.openable-panorama:hover
+{
+    cursor: pointer;
+    filter: brightness(60%);
+}
+
+/*@keyframes bobbing
+{
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}*/
+
+/* panorama-hint should be ON the openable-panorama */
+.panorama-hint
+{
+    position: absolute;
+    display: none;
+    
+    /* Centered on the openable-panorama */
+    top: 11%;
+    left: 20%;
+
+    /*background: rgba(24, 24, 24, 0.5);
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;*/
+
+    /* Non-interactive */
+    pointer-events: none;
+
+
+    font-size: 20px;
+    color: white;
+    z-index: 1001;
+}
+
+.openable-panorama:hover + .panorama-hint
+{
+    display: block;
+}
+
+/* Photosphere */
+
+#vrScene
+{
+    z-index: 9999;
+}
+
+.vr-close-btn 
+{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    border-radius: 5px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+
+    font-size: 36px;
+    cursor: pointer;
+    color: #363636;
+    z-index: 1001;
 }

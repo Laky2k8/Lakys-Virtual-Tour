@@ -24,6 +24,8 @@ var map = L.map('map',
 );
 let currentlySelectedMarker = null;
 
+
+
 /* Map Types */
 let osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -64,9 +66,32 @@ loadLocations().then(
     }  
 );
 
-function placeLocations(locations)
+async function placeLocations(locations)
 {
-    locations.forEach(location => {
+
+    // Detect if panorama
+    const detectPromises = locations.map(async (location) =>
+    {
+        try
+        {
+            const result = await detectPanorama(location.image);
+            location.isPanorama = !!result.isPanorama;
+            location._panoramaDetection = result;
+        }
+        catch (e)
+        {
+            console.error('Error detecting panorama for', location.image, e);
+            location.isPanorama = false;
+            location._panoramaDetection = { isPanorama: false, reason: 'Error', error: String(e) };
+        }
+
+        return location;
+    });
+
+    // Wait for all detection to finish
+    const processed = await Promise.all(detectPromises);
+
+    processed.forEach(location => {
 
         // Check if the image for the current location is a panorama
         const aspectRatio = location.image.naturalWidth / location.image.naturalHeight;

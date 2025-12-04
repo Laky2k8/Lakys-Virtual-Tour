@@ -8,6 +8,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/js/all.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/fontawesome.min.css" rel="stylesheet">
     
+    <!-- A-Frame -->
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
 
     <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
@@ -19,7 +21,11 @@
 
     <script src="https://unpkg.com/esri-leaflet@3.0.16/dist/esri-leaflet.js"></script>
 
+    <!-- Exifr -->
+    <script src="https://cdn.jsdelivr.net/npm/exifr/dist/lite.umd.js"></script>
+
     <link rel="stylesheet" href="style.css">
+    <script src="mobileControl.js"></script>
 
     <title>Virtual Tour</title>
 </head>
@@ -30,7 +36,11 @@
     <div id="info-panel" class="info-panel">
         <button id="close-btn" class="close-btn">&times;</button>
         <div class="info-content">
-            <img src="" alt="" id="info-image">
+            <div class="image-container">
+                <img src="" alt="" id="info-image">
+                <p class="panorama-hint">Click to open panorama</p>
+            </div>
+            
             <div class="info-details">
                 <h1 id="info-place">Place 1</h1>
                 <p id="info-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime nesciunt ducimus aliquid nihil culpa tempore mollitia fuga praesentium, dolorum aliquam corporis ea eveniet cum eaque assumenda perspiciatis, dignissimos iste quos?</p>
@@ -39,6 +49,21 @@
         </div>
     </div>
 
+    <a-scene id="vrScene">
+
+        <!-- Close button -->
+        <button id="vr-close-btn" class="vr-close-btn">&times;</button>
+
+        <a-assets>
+            <img id="test" src="" alt="">
+        </a-assets>
+
+        <a-camera wasd-controls-enabled="false"></a-camera>
+
+        <a-sky id="photosphere" radius="10" src="#test"></a-sky>
+	</a-scene>
+
+    <script src="panoramaDetect.js"></script>
     <script src="infoPanel.js"></script>
     <script src="virtualTour.js"></script>
 
